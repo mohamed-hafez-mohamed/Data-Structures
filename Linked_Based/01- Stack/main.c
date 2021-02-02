@@ -1,21 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "STACK.h"
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "STACK_interface.h"
 
 int main()
 {
-    Stack MyStack;
-    StackEntry element = 10;
-    StackEntry top_element;
-
-    InitializeStack(&MyStack);
-    if(!StackFull(&MyStack))
+    Stack_t      MyStack;
+    StackEntry_t element = 10;
+    StackEntry_t top_element;
+    STACK_voidInitializeStack(&MyStack);
+    if(!STACK_u8IsStackFull(&MyStack))
     {
-        Push(&element,&MyStack);
+        STACK_u8PushEntryElement(&element, &MyStack);
     }
-    if(!StackEmpty(&MyStack))
+    if(!STACK_u8IsStackEmpty(&MyStack))
     {
-        StackTop(&top_element, &MyStack);
+        STACK_u8PopEntryElement(&top_element, &MyStack);
     }
     printf("FIRST ELEMENT = %d\n",element);
     printf("TOP   ELEMENT = %d\n",top_element);
