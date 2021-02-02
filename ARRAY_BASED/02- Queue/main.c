@@ -1,21 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "QUEUE.h"
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "QUEUE_interface.h"
 
 int main()
 {
-    Queue MyQueue;
-    QueueEntry element = 10;
-    QueueEntry front_element;
+    Queue_t      MyQueue;
+    QueueEntry_t element = 10;
+    QueueEntry_t front_element;
 
-    InitializeQueue(&MyQueue);
-    if(!QueueFull(&MyQueue))
+    QUEUE_voidInitializeQUEUE(&MyQueue);
+    if(!QUEUE_u8IsQueueFull(&MyQueue))
     {
-        Append(&element,&MyQueue);
+        QUEUE_u8AppendElement(&element,&MyQueue);
     }
-    if(!QueueEmpty(&MyQueue))
+    if(!QUEUE_u8IsQueueEmpty(&MyQueue))
     {
-        Serve(&front_element, &MyQueue);
+        Queue_voidServeElement(&front_element, &MyQueue);
     }
     printf("FIRST   ELEMENT = %d\n",element);
     printf("FRONT   ELEMENT = %d\n",front_element);
